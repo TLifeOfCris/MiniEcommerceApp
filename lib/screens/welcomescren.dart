@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:miniecommerceapp/widgets/buttonfromwelcome.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});
@@ -11,13 +12,24 @@ class WelcomeScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text('MINI E-COMMERCE APP'),
-            Text('Compra cosas bla bla bla bla'),
+            Text('MINI E-COMMERCE APP', style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),),
+            Text('Compra cosas bla bla bla bla', style: TextStyle(fontSize: 20),),
+
+            SizedBox(height: 30,),
             //ELEVATED BUTTON
-            Text('Create Account'),
+           ButtonFromWelcome(texteo: 'Create An Account', color: Colors.blue, size: 24, onPressed: (){
+
+           }, textColor: Colors.white),
+
+           SizedBox(height: 30,),
+           // Text('Create Account'),
             Text('- or -'),
+            SizedBox(height: 30,),
             //ELEVATED BUTTON
-            Text('Log In')
+            ButtonFromWelcome(texteo: 'Log In', color: Colors.white, size: 24, textColor: Colors.black, onPressed: (){
+
+            })
+            //Text('Log In')
           ],
         ),
       ),
