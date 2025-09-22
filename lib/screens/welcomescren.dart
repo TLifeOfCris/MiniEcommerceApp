@@ -13,6 +13,7 @@ class WelcomeScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text('MINI E-COMMERCE APP', style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),),
+            //SE PODRÍA USAR REMOTE CONFIG AQUÍ PARA ESCRIBIR DISTINTOS TEXTOS
             Text('Compra cosas bla bla bla bla', style: TextStyle(fontSize: 20),),
 
             SizedBox(height: 30,),
