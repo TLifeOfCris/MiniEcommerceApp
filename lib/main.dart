@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       initialRoute: '/',
       routes: {
-        '/': (context) => const WelcomeScreen(),
+        //'/': (context) => const WelcomeScreen(),
         '/CreateAccount': (context) => const CreateAnAccountScreen(),
         '/LogIn': (context) => const LoginScreen(),
       },

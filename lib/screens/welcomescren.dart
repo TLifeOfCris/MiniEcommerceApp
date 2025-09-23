@@ -19,7 +19,7 @@ class WelcomeScreen extends StatelessWidget {
             SizedBox(height: 30,),
             //ELEVATED BUTTON
            ButtonFromWelcome(texteo: 'Create An Account', color: Colors.blue, size: 24, onPressed: (){
-
+              Navigator.pushNamed(context, '/CreateAccount');
            }, textColor: Colors.white),
 
            SizedBox(height: 30,),
