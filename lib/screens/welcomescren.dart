@@ -28,7 +28,7 @@ class WelcomeScreen extends StatelessWidget {
             SizedBox(height: 30,),
             //ELEVATED BUTTON
             ButtonFromWelcome(texteo: 'Log In', color: Colors.white, size: 24, textColor: Colors.black, onPressed: (){
-
+                 Navigator.pushNamed(context, '/LogIn');
             })
             //Text('Log In')
           ],
