@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class Createfield extends StatelessWidget {
   final IconData icon;
@@ -11,6 +12,7 @@ class Createfield extends StatelessWidget {
   final Color borderColor;
   final Color bordersideColor;
   final Color textStyleColor;
+  final bool isNumeric;
   final TextEditingController controller;
   const Createfield({super.key, 
   required this.icon,
@@ -23,7 +25,8 @@ class Createfield extends StatelessWidget {
   required this.borderColor,
   required this.bordersideColor,
   required this.controller,
-  required this.textStyleColor
+  required this.textStyleColor,
+  this.isNumeric = false,
   });
 
 
@@ -34,6 +37,8 @@ class Createfield extends StatelessWidget {
               width: 400,
               child: TextFormField(
                 controller: controller,
+                keyboardType: isNumeric ? TextInputType.number : TextInputType.text,
+                inputFormatters: isNumeric ? [FilteringTextInputFormatter.digitsOnly] : [],
 
                 decoration: InputDecoration(
                   prefixIcon: Icon(icon, color: iconColor,),

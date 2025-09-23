@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         //'/': (context) => const WelcomeScreen(),
-        '/CreateAccount': (context) => const CreateAnAccountScreen(),
+        '/CreateAccount': (context) =>  CreateAnAccountScreen(),
         '/LogIn': (context) => const LoginScreen(),
       },
       home: WelcomeScreen());
