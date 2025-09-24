@@ -15,10 +15,10 @@ class HomeTienda extends StatelessWidget {
             padding: const EdgeInsets.only(right:  16.0),
             child: Row(
               children: <Widget>[
-                Icon(Icons.search, size: 28,),
+                IconButton(icon:  Icon(Icons.search, size: 28),onPressed: () {}, ),
                 SizedBox(width: 24,),
             Stack(children: <Widget>[
-              Icon(Icons.shopping_cart, size: 28,),
+              IconButton(icon: Icon(Icons.shopping_cart, size: 28),onPressed: () {}, ),
               
               Positioned(
                 right: 0,
