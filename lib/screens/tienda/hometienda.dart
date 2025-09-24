@@ -9,15 +9,17 @@ class HomeTienda extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
 
-        title: Text('MI TIENDA X'),
+        title: Text('CAMBIAR NOMBRE'),
         actions: [
           Padding(
             padding: const EdgeInsets.only(right:  16.0),
             child: Row(
               children: <Widget>[
+                //Cambiar a boton normal
                 IconButton(icon:  Icon(Icons.search, size: 28),onPressed: () {}, ),
                 SizedBox(width: 24,),
             Stack(children: <Widget>[
+              //Cambiar a botón normal
               IconButton(icon: Icon(Icons.shopping_cart, size: 28),onPressed: () {}, ),
               
               Positioned(
@@ -25,17 +27,37 @@ class HomeTienda extends StatelessWidget {
                 top: 0,
                 child: CircleAvatar(
                   radius: 8,
-                
+                //HACERLO REACTIVO CON EL NÚMERO DE ARITCULOS EN EL CARRITO 
                 child: Text('3'),)),
               ],
             )
-            
             ],),
           )
         ],
         
 
       ),
+
+      body: Padding(padding: EdgeInsets.all(16.0),
+      child: Column(
+        children: <Widget>[
+          TextField(
+            decoration: InputDecoration(
+              hintText: 'Buscar producto',
+              prefixIcon: Icon(Icons.search),
+              border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(12),
+                  borderSide: BorderSide.none,
+              ),
+              filled: true,
+              fillColor: Colors.grey[200],
+              contentPadding: const EdgeInsets.symmetric(vertical: 0, horizontal: 16),
+            ),
+          ),
+          SizedBox(height: 20,),
+          Text('BANNER DINAMICO')
+        ],
+      ),),
     );
   }
 }
