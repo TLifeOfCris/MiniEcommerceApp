@@ -55,7 +55,28 @@ class HomeTienda extends StatelessWidget {
             ),
           ),
           SizedBox(height: 20,),
-          Text('BANNER DINAMICO')
+          //Text('BANNER DINAMICO')
+          Card(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12)
+            ),
+            color: Colors.orange[400],
+            elevation: 4,
+            child: Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              
+              children: <Widget>[
+                Text('OFERTA DEL DÍA - #DINAMICO% OFF!', style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18,
+                  color: Colors.white
+                ),)
+              ],
+              ),
+            ),
+            )
         ],
       ),),
     );
