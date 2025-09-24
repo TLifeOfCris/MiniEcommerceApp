@@ -12,13 +12,13 @@ class HomeTienda extends StatelessWidget {
         title: Text('MI TIENDA X'),
         actions: [
           Padding(
-            padding: const EdgeInsets.only(right:  46.0),
+            padding: const EdgeInsets.only(right:  16.0),
             child: Row(
               children: <Widget>[
-                Icon(Icons.search, size: 32,),
-                SizedBox(width: 30,),
+                Icon(Icons.search, size: 28,),
+                SizedBox(width: 24,),
             Stack(children: <Widget>[
-              Icon(Icons.shopping_cart, size: 32,),
+              Icon(Icons.shopping_cart, size: 28,),
               
               Positioned(
                 right: 0,
