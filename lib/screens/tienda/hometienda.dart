@@ -91,40 +91,6 @@ class HomeTienda extends StatelessWidget {
             ),
                     //AQUÍ TERMINA EL BANNER DINAMICO
                 SizedBox(height: 20,),
-                /*
-                SizedBox(
-                  height: 105,
-                  
-                  child: GridView.builder(
-                    shrinkWrap: false,
-                    scrollDirection: Axis.horizontal,
-                    //physics: NeverScrollableScrollPhysics(),
-                    /*
-                    crossAxisCount: 2,
-                    crossAxisSpacing: 12,
-                    mainAxisSpacing: 5,
-                    childAspectRatio: 2,
-                    */
-                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 1,
-                      crossAxisSpacing: 0, // 1 fila
-                      mainAxisSpacing: 10, // espacio entre tarjetas
-                      childAspectRatio: 0.9, // ancho / alto de cada tarjeta
-                      ),
-                      itemCount: ProductProvider().categorias.length,
-                      itemBuilder: (context, index){
-                        final categoria = ProductProvider().categorias[index];
-                        return SizedBox(
-                          width: 10,
-                          child: Categories(
-                          texteo: categoria),
-                        );
-                      },
- 
-                    ),
-                ),
-                */
-
                 SizedBox(
                   height: 70,
                   child: ListView.separated(itemBuilder: (context, index){
@@ -137,6 +103,28 @@ class HomeTienda extends StatelessWidget {
                   scrollDirection: Axis.horizontal,
                   
                    itemCount: ProductProvider().categorias.length),
+                ),
+
+                SizedBox(height: 30,),
+
+                //AQUI TERMINA CATEGORIAS 
+
+                Expanded(
+                  child: GridView.builder(gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,       // 2 columnas
+                    mainAxisSpacing: 12,     // espacio vertical
+                    crossAxisSpacing: 12,    // espacio horizontal
+                    childAspectRatio: 0.8,   // ancho/alto de cada tarjeta
+                    ), 
+                    itemCount: ProductProvider().productos.length,
+                    itemBuilder: (context, index){
+                    final producto = ProductProvider().productos[index];
+                    return Card(child: Center(child: Column(
+                      children: <Widget> [
+                        Text(producto.productName),
+                      ],
+                    )),);
+                  }),
                 )
 
         ],
