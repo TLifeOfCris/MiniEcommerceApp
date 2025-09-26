@@ -7,36 +7,53 @@ class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Center(child: CircleAvatar(
-            radius: 70,
-          )),
-          SizedBox(height: 50,),
-          Text('Nombre completo del usuario formulario'),
-          SizedBox(height: 30,),
-          Text('CORREO ELECTRONICO DEL FORMULARIO'),
-          SizedBox(height: 30,),
-          Text('TELEFONO DEL FORMULARIO'),
-          SizedBox(height: 30,),
-          Text('Dirección:  DIRECCIÓN DEL FORMULARIO'),
-          SizedBox(height: 50,),
+      appBar: AppBar(
+        title: Center(child: Text('PERFIL')),
+        backgroundColor: Colors.orange[400],
 
-
-
-          Row(
+      ),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
+          child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-
-              ButtonFromWelcome(texteo: 'EDITAR', color: Colors.white, size: 20, onPressed: (){}, textColor: Colors.black),
-              SizedBox(width: 30,),
-              ButtonFromWelcome(texteo: 'ACEPTAR', color: Colors.white, size: 20, onPressed: (){}, textColor: Colors.black)
+              Center(child: CircleAvatar(
+                radius: 70,
+              )),
+              SizedBox(height: 50,),
+              Card(
+                shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(12)),
+                child: ListTile(
+                  title: Text('NOMBRE'),
+                  subtitle: Text('Nombre completo formulario'),
+                  leading: Icon(Icons.person),
+                )),
+              SizedBox(height: 30,),
+              Text('CORREO: CORREO ELECTRONICO DEL FORMULARIO'),
+              SizedBox(height: 30,),
+              Text('TELEFNO: TELEFONO DEL FORMULARIO'),
+              SizedBox(height: 30,),
+              Text('Dirección:  DIRECCIÓN DEL FORMULARIO'),
+              SizedBox(height: 50,),
+          
+          
+          
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+          
+                  ButtonFromWelcome(texteo: 'EDITAR', color: Colors.white, size: 20, onPressed: (){}, textColor: Colors.black),
+                  SizedBox(width: 30,),
+                  ButtonFromWelcome(texteo: 'ACEPTAR', color: Colors.white, size: 20, onPressed: (){}, textColor: Colors.black)
+                ],
+              )
             ],
-          )
-        ],
+          ),
+        ),
       )
     );
   }
