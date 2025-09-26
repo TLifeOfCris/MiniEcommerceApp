@@ -17,10 +17,7 @@ class HomeTienda extends StatelessWidget {
             padding: const EdgeInsets.only(right:  16.0),
             child: Row(
               children: <Widget>[
-                //Cambiar a boton normal
-                IconButton(icon:  Icon(Icons.search, size: 28),onPressed: () {}, ),
-                SizedBox(width: 24,),
-            Stack(children: <Widget>[
+                Stack(children: <Widget>[
               //Cambiar a botón normal
               IconButton(icon: Icon(Icons.shopping_cart, size: 28),onPressed: () {}, ),
               
@@ -32,7 +29,12 @@ class HomeTienda extends StatelessWidget {
                 //HACERLO REACTIVO CON EL NÚMERO DE ARITCULOS EN EL CARRITO 
                 child: Text('3'),)),
               ],
-            )
+            ),
+                //Cambiar a boton normal
+                IconButton(icon:  Icon(Icons.search, size: 28),onPressed: () {}, ),
+                SizedBox(width: 24,),
+                IconButton(onPressed: (){}, icon: Icon(Icons.person, size: 28,)),
+            
             ],),
           )
         ],
@@ -119,9 +121,13 @@ class HomeTienda extends StatelessWidget {
                     itemCount: ProductProvider().productos.length,
                     itemBuilder: (context, index){
                     final producto = ProductProvider().productos[index];
-                    return Card(child: Center(child: Column(
+                    return Card(
+                      child: Center(
+                      child: Column(
                       children: <Widget> [
                         Text(producto.productName),
+                        Text(producto.category),
+                        Text(producto.price.toString())
                       ],
                     )),);
                   }),
