@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:miniecommerceapp/screens/logincreataccountscreens/createaccount.dart';
 import 'package:miniecommerceapp/screens/logincreataccountscreens/loginscreen.dart';
+import 'package:miniecommerceapp/screens/profile/profile.screen.dart';
 import 'package:miniecommerceapp/screens/tienda/hometienda.dart';
 import 'package:miniecommerceapp/screens/welcomescren.dart';
 
@@ -21,9 +22,11 @@ class MyApp extends StatelessWidget {
         //'/': (context) => const WelcomeScreen(),
         '/CreateAccount': (context) =>  CreateAnAccountScreen(),
         '/LogIn': (context) => LoginScreen(),
+        '/profile': (context) => ProfileScreen(),
       },
       home: //WelcomeScreen()
-      HomeTienda()
+      //HomeTienda()
+      ProfileScreen()
       );
 
     
