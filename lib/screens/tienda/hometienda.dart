@@ -91,7 +91,10 @@ class HomeTienda extends StatelessWidget {
             ),
                     //AQUÍ TERMINA EL BANNER DINAMICO
                 SizedBox(height: 20,),
-                Expanded(
+                /*
+                SizedBox(
+                  height: 105,
+                  
                   child: GridView.builder(
                     shrinkWrap: false,
                     scrollDirection: Axis.horizontal,
@@ -103,18 +106,38 @@ class HomeTienda extends StatelessWidget {
                     childAspectRatio: 2,
                     */
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 1, // 1 fila
+                      crossAxisCount: 1,
+                      crossAxisSpacing: 0, // 1 fila
                       mainAxisSpacing: 10, // espacio entre tarjetas
-                      childAspectRatio: 2, // ancho / alto de cada tarjeta
+                      childAspectRatio: 0.9, // ancho / alto de cada tarjeta
                       ),
                       itemCount: ProductProvider().categorias.length,
                       itemBuilder: (context, index){
                         final categoria = ProductProvider().categorias[index];
-                        return Categories(texteo: categoria);
+                        return SizedBox(
+                          width: 10,
+                          child: Categories(
+                          texteo: categoria),
+                        );
                       },
  
                     ),
                 ),
+                */
+
+                SizedBox(
+                  height: 70,
+                  child: ListView.separated(itemBuilder: (context, index){
+                    
+                    final categoria = ProductProvider().categorias[index];
+                    return SizedBox(
+                      width: 120,
+                      child: Categories(texteo: categoria));
+                  }, separatorBuilder: (_, __) => SizedBox(width: 12),
+                  scrollDirection: Axis.horizontal,
+                  
+                   itemCount: ProductProvider().categorias.length),
+                )
 
         ],
         

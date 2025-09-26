@@ -7,7 +7,7 @@ class Categories extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-                      height: 80,
+                      height: 20,
                         child: Card(
                           
                           child: Center(child: FittedBox(
