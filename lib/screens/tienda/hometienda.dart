@@ -1,5 +1,7 @@
 
 import 'package:flutter/material.dart';
+import 'package:miniecommerceapp/provider/provider.dart';
+import 'package:miniecommerceapp/widgets/buttonscategories.dart';
 
 class HomeTienda extends StatelessWidget {
   const HomeTienda({super.key});
@@ -34,9 +36,10 @@ class HomeTienda extends StatelessWidget {
             ],),
           )
         ],
-        
-
       ),
+
+
+
 
       body: Padding(padding: EdgeInsets.all(16.0),
       child: Column(
@@ -54,8 +57,16 @@ class HomeTienda extends StatelessWidget {
               contentPadding: const EdgeInsets.symmetric(vertical: 0, horizontal: 16),
             ),
           ),
+          
+
+
+
           SizedBox(height: 20,),
+
+
+
           //Text('BANNER DINAMICO')
+          //AQUI PONER REMOTE CONFIG
           Card(
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(12)
@@ -72,13 +83,43 @@ class HomeTienda extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                   fontSize: 18,
                   color: Colors.white
-                ),)
+                ),),
+                const Icon(Icons.local_offer, color: Colors.white, size: 20,)
               ],
               ),
             ),
-            )
+            ),
+                    //AQUÍ TERMINA EL BANNER DINAMICO
+                SizedBox(height: 20,),
+                Expanded(
+                  child: GridView.builder(
+                    shrinkWrap: false,
+                    scrollDirection: Axis.horizontal,
+                    //physics: NeverScrollableScrollPhysics(),
+                    /*
+                    crossAxisCount: 2,
+                    crossAxisSpacing: 12,
+                    mainAxisSpacing: 5,
+                    childAspectRatio: 2,
+                    */
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 1, // 1 fila
+                      mainAxisSpacing: 10, // espacio entre tarjetas
+                      childAspectRatio: 2, // ancho / alto de cada tarjeta
+                      ),
+                      itemCount: ProductProvider().categorias.length,
+                      itemBuilder: (context, index){
+                        final categoria = ProductProvider().categorias[index];
+                        return Categories(texteo: categoria);
+                      },
+ 
+                    ),
+                ),
+
         ],
-      ),),
+        
+      ),
+      ),
     );
   }
 }
