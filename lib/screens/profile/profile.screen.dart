@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:miniecommerceapp/widgets/buttonfromwelcome.dart';
+import 'package:miniecommerceapp/widgets/cardprofile.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -23,20 +24,13 @@ class ProfileScreen extends StatelessWidget {
                 radius: 70,
               )),
               SizedBox(height: 50,),
-              Card(
-                shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(12)),
-                child: ListTile(
-                  title: Text('NOMBRE'),
-                  subtitle: Text('Nombre completo formulario'),
-                  leading: Icon(Icons.person),
-                )),
+              Cardprofile(nombrecompleto: 'Nombre', icon: Icons.person, nombre: 'NOMBRE'),
               SizedBox(height: 30,),
-              Text('CORREO: CORREO ELECTRONICO DEL FORMULARIO'),
+              Cardprofile(nombrecompleto: 'CORREO ELECTRONICO', icon: Icons.email, nombre: 'E-MAIL'),
               SizedBox(height: 30,),
-              Text('TELEFNO: TELEFONO DEL FORMULARIO'),
+              Cardprofile(nombrecompleto: '81230493940', icon: Icons.phone, nombre: 'Télefono'),
               SizedBox(height: 30,),
-              Text('Dirección:  DIRECCIÓN DEL FORMULARIO'),
+              Cardprofile(nombrecompleto: 'BLA BLA 34335', icon: Icons.home, nombre: 'Dirección'),
               SizedBox(height: 50,),
           
           
