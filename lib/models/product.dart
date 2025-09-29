@@ -40,11 +40,11 @@ class Product {
 
 }
 
-class CarItem{
+class CartItem{
   final Product product;
   int quantity;
 
-  CarItem({
+  CartItem({
     required this.product,
     required this.quantity
   });
