@@ -39,3 +39,15 @@ class Product {
 
 
 }
+
+class CarItem{
+  final Product product;
+  int quantity;
+
+  CarItem({
+    required this.product,
+    required this.quantity
+  });
+
+  double get subtotal => product.price * quantity;
+}
