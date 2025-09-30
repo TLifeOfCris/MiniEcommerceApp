@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:miniecommerceapp/models/cart_item.dart';
 import '../models/product.dart';
 
 class Cartprovider with ChangeNotifier {
@@ -30,4 +31,30 @@ class Cartprovider with ChangeNotifier {
     notifyListeners();
   }
   }
+
+  //Cuantos del mismo producto quieres 
+
+  void increaseQuantity(Product product){
+    final index = _items.indexWhere((item ) => item.product.productName == product.productName);
+    if (index >= 0){
+      _items[index].quantity++;
+      notifyListeners();
+    }
+  }
+
+  void decreaseQuantity(Product product){
+    final index = _items.indexWhere((item) => item.product.productName == product.productName);
+    if (index >= 0 && _items[index].quantity > 1){
+      _items[index].quantity--;
+    } else {
+      removeFromCart(product);
+    }
+    notifyListeners();
+  }
+
+  void clearCart() {
+    _items.clear();
+    notifyListeners();
+  }
+    double get total => _items.fold(0, (sum, item) => sum + item.subtotal);
 }
