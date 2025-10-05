@@ -29,10 +29,10 @@ class HomeTienda extends StatelessWidget {
               Positioned(
                 right: 0,
                 top: 0,
-                child: CircleAvatar(
+                child: Consumer<CartProvider>( builder: (context, cart, child) => CircleAvatar(
                   radius: 8,
                 //HACERLO REACTIVO CON EL NÚMERO DE ARITCULOS EN EL CARRITO 
-                child: Text('3'),)),
+                child: Text(cart.items.length.toString()),)))
               ],
             ),
                 //Cambiar a boton normal
