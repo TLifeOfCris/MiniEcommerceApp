@@ -34,6 +34,7 @@ class MyApp extends StatelessWidget {
           '/LogIn': (context) => LoginScreen(),
           '/profile': (context) => ProfileScreen(),
           '/Carrito': (context) => MiCarrito(),
+          
         },
         home: //WelcomeScreen()
         HomeTienda()

@@ -1,7 +1,9 @@
 
 import 'package:flutter/material.dart';
+import 'package:miniecommerceapp/provider/cartprovider.dart';
 import 'package:miniecommerceapp/provider/provider.dart';
 import 'package:miniecommerceapp/widgets/buttonscategories.dart';
+import 'package:provider/provider.dart';
 
 class HomeTienda extends StatelessWidget {
   const HomeTienda({super.key});
@@ -126,15 +128,34 @@ class HomeTienda extends StatelessWidget {
                     itemCount: ProductProvider().productos.length,
                     itemBuilder: (context, index){
                     final producto = ProductProvider().productos[index];
-                    return Card(
-                      child: Center(
-                      child: Column(
-                      children: <Widget> [
-                        Text(producto.productName),
-                        Text(producto.category),
-                        Text(producto.price.toString())
-                      ],
-                    )),);
+                    return Stack(
+                      children:
+                      [ Card(
+                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                        elevation: 4,
+                        child: Center(
+                        child: Column(
+                        children: <Widget> [
+                          Text(producto.productName, style: TextStyle(fontWeight: FontWeight.bold),),
+                          SizedBox(height: 5,),
+                          Text(producto.category),
+                          SizedBox(height: 5,),
+                          Text('\$${producto.price.toStringAsFixed(2)}'),
+                          SizedBox(height: 10,),
+                          //FilledButton.icon(onPressed: (){}, label: Text('Agregar'),icon: Icon(Icons.add),)
+                        ],
+                      )),),
+                      Positioned(
+                        right: 8,
+                        bottom: 8,
+                        child: FloatingActionButton(
+                          heroTag: 'add_${producto.id}',
+                          onPressed: () => context.read<CartProvider>().addToCart(producto),
+                          backgroundColor: Colors.white,child: const Icon(Icons.add_shopping_cart),
+                          )
+                          )
+                      ]
+                    );
                   }),
                 )
 

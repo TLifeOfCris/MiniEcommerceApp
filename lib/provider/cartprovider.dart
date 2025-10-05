@@ -53,7 +53,7 @@ class CartProvider with ChangeNotifier {
         if (index >= 0) {
       _items[index].quantity++;
     } else {
-      _items.add(CartItem(product: product, quantity: 1));
+      _items.add(CartItem(product: product, quantity: 1, ));
     }
     notifyListeners();
   }
