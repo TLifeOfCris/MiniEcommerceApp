@@ -19,7 +19,10 @@ class HomeTienda extends StatelessWidget {
               children: <Widget>[
                 Stack(children: <Widget>[
               //Cambiar a botón normal
-              IconButton(icon: Icon(Icons.shopping_cart, size: 28),onPressed: () {}, ),
+              //CARRITO
+              IconButton(icon: Icon(Icons.shopping_cart, size: 28),onPressed: () {
+                 Navigator.pushNamed(context, '/Carrito');
+              }, ),
               
               Positioned(
                 right: 0,
@@ -33,7 +36,9 @@ class HomeTienda extends StatelessWidget {
                 //Cambiar a boton normal
                 IconButton(icon:  Icon(Icons.search, size: 28),onPressed: () {}, ),
                 SizedBox(width: 24,),
-                IconButton(onPressed: (){}, icon: Icon(Icons.person, size: 28,)),
+                IconButton(onPressed: (){
+                  Navigator.pushNamed(context, '/profile');
+                }, icon: Icon(Icons.person, size: 28,)),
             
             ],),
           )

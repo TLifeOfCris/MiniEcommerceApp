@@ -33,11 +33,12 @@ class MyApp extends StatelessWidget {
           '/CreateAccount': (context) =>  CreateAnAccountScreen(),
           '/LogIn': (context) => LoginScreen(),
           '/profile': (context) => ProfileScreen(),
+          '/Carrito': (context) => MiCarrito(),
         },
         home: //WelcomeScreen()
-        //HomeTienda()
+        HomeTienda()
         //ProfileScreen()
-        MiCarrito()
+        //MiCarrito()
         ),
     );
 
