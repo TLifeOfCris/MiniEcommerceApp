@@ -103,15 +103,24 @@ class HomeTienda extends StatelessWidget {
                 SizedBox(
                   height: 70,
                   child: ListView.separated(itemBuilder: (context, index){
+                    final providerProduct = Provider.of<ProductProvider>(context, listen: false);
                     
-                    final categoria = ProductProvider().categorias[index];
+                    //final categoria = ProductProvider().categorias[index];
+                    final categoria = providerProduct.categorias[index];
                     return SizedBox(
                       width: 120,
-                      child: Categories(texteo: categoria));
+                      child: GestureDetector(
+                        
+                        
+                        child: Categories(texteo: categoria, 
+                        onTap: () {
+                                  providerProduct.selectCategory(categoria);
+                                  print('Categría seleccionada $categoria');
+                        },)));
                   }, separatorBuilder: (_, __) => SizedBox(width: 12),
                   scrollDirection: Axis.horizontal,
                   
-                   itemCount: ProductProvider().categorias.length),
+                   itemCount: Provider.of<ProductProvider>(context, listen: false).categorias.length),
                 ),
 
                 SizedBox(height: 30,),

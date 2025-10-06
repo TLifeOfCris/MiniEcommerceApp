@@ -4,7 +4,7 @@ import 'package:provider/provider.dart';
 
 class ProductProvider extends ChangeNotifier{
 
-  List<String> categorias = ['ELECTRONICA', 'ROPA', 'HOGAR', 'MASCOTAS'];
+  List<String> categorias = [ 'TODO','ELECTRONICA', 'ROPA', 'HOGAR', 'MASCOTAS',];
 
 
   List<Product> productos = [
@@ -79,5 +79,21 @@ class ProductProvider extends ChangeNotifier{
       stock: true,
     ),
   ];
+
+  String selectedCategory = '';
+
+  void selectCategory(String category) {
+  selectedCategory = category;
+  notifyListeners(); // para que la UI se actualice
+}
+
+  List<Product> filteredProducts = [];
+
+  List<Product> get getFilteredProducts{
+    if (selectedCategory.isEmpty){
+      return productos;
+    } 
+    return productos.where((p) => p.category == selectedCategory).toList();
+  }
 
 }

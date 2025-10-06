@@ -4,59 +4,7 @@ import '../models/product.dart';
 
 class CartProvider with ChangeNotifier {
   final List <CartItem> _items = [
-
-  CartItem(
-    product: Product(
-      id: '2',
-      productName: 'Mouse Inalámbrico',
-      category: 'Electrónica',
-      price: 299.50,
-      description: 'Mouse ergonómico con conexión bluetooth',
-      stock: true,
-      isFeatured: false,
-      discount: 0.0,
-    ),
-    quantity: 1,
-  ),
-    CartItem(
-    product: Product(
-      id: '2',
-      productName: 'Mouse Inalámbrico',
-      category: 'Electrónica',
-      price: 299.50,
-      description: 'Mouse ergonómico con conexión bluetooth',
-      stock: true,
-      isFeatured: false,
-      discount: 0.0,
-    ),
-    quantity: 1,
-  ),
-    CartItem(
-    product: Product(
-      id: '2',
-      productName: 'Mouse Inalámbrico',
-      category: 'Electrónica',
-      price: 299.50,
-      description: 'Mouse ergonómico con conexión bluetooth',
-      stock: true,
-      isFeatured: false,
-      discount: 0.0,
-    ),
-    quantity: 1,
-  ),
-      CartItem(
-    product: Product(
-      id: '2',
-      productName: 'Mouse Inalámbrico',
-      category: 'Electrónica',
-      price: 299.50,
-      description: 'Mouse ergonómico con conexión bluetooth',
-      stock: true,
-      isFeatured: false,
-      discount: 0.0,
-    ),
-    quantity: 1,
-  ),
+    
   ];
 
   List <CartItem> get items => _items;
