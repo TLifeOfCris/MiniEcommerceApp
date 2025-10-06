@@ -127,46 +127,65 @@ class HomeTienda extends StatelessWidget {
 
                 //AQUI TERMINA CATEGORIAS 
 
-                Expanded(
-                  child: GridView.builder(gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          Expanded(
+            child: Consumer<ProductProvider>(
+              builder: (context, productProvider, child) {
+                // Lista de productos a mostrar: filtrados o todos si no hay filtro
+                final productsToShow = productProvider.getFilteredProducts.isEmpty
+                    ? productProvider.productos
+                    : productProvider.getFilteredProducts;
+
+                return GridView.builder(
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,       // 2 columnas
                     mainAxisSpacing: 12,     // espacio vertical
                     crossAxisSpacing: 12,    // espacio horizontal
                     childAspectRatio: 0.8,   // ancho/alto de cada tarjeta
-                    ), 
-                    itemCount: ProductProvider().productos.length,
-                    itemBuilder: (context, index){
-                    final producto = ProductProvider().productos[index];
+                  ),
+                  itemCount: productsToShow.length,
+                  itemBuilder: (context, index) {
+                    final producto = productsToShow[index];
+
                     return Stack(
-                      children:
-                      [ Card(
-                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-                        elevation: 4,
-                        child: Center(
-                        child: Column(
-                        children: <Widget> [
-                          Text(producto.productName, style: TextStyle(fontWeight: FontWeight.bold),),
-                          SizedBox(height: 5,),
-                          Text(producto.category),
-                          SizedBox(height: 5,),
-                          Text('\$${producto.price.toStringAsFixed(2)}'),
-                          SizedBox(height: 10,),
-                          //FilledButton.icon(onPressed: (){}, label: Text('Agregar'),icon: Icon(Icons.add),)
-                        ],
-                      )),),
-                      Positioned(
-                        right: 8,
-                        bottom: 8,
-                        child: FloatingActionButton(
-                          heroTag: 'add_${producto.id}',
-                          onPressed: () => context.read<CartProvider>().addToCart(producto),
-                          backgroundColor: Colors.white,child: const Icon(Icons.add_shopping_cart),
-                          )
-                          )
-                      ]
+                      children: [
+                        Card(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                          elevation: 4,
+                          child: Center(
+                            child: Column(
+                              children: <Widget>[
+                                Text(
+                                  producto.productName,
+                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                ),
+                                SizedBox(height: 5),
+                                Text(producto.category),
+                                SizedBox(height: 5),
+                                Text('\$${producto.price.toStringAsFixed(2)}'),
+                                SizedBox(height: 10),
+                              ],
+                            ),
+                          ),
+                        ),
+                        Positioned(
+                          right: 8,
+                          bottom: 8,
+                          child: FloatingActionButton(
+                            heroTag: 'add_${producto.id}',
+                            onPressed: () => context.read<CartProvider>().addToCart(producto),
+                            backgroundColor: Colors.white,
+                            child: const Icon(Icons.add_shopping_cart),
+                          ),
+                        ),
+                      ],
                     );
-                  }),
-                )
+                  },
+                );
+              },
+            ),
+          ),
 
         ],
         

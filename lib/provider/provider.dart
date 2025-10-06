@@ -4,7 +4,7 @@ import 'package:provider/provider.dart';
 
 class ProductProvider extends ChangeNotifier{
 
-  List<String> categorias = [ 'TODO','ELECTRONICA', 'ROPA', 'HOGAR', 'MASCOTAS',];
+  List<String> categorias = [ 'TODO','ELECTRÓNICA', 'ROPA', 'HOGAR', 'MASCOTAS',];
 
 
   List<Product> productos = [
@@ -90,10 +90,10 @@ class ProductProvider extends ChangeNotifier{
   List<Product> filteredProducts = [];
 
   List<Product> get getFilteredProducts{
-    if (selectedCategory.isEmpty){
+    if (selectedCategory.isEmpty || selectedCategory == 'TODO'){
       return productos;
     } 
-    return productos.where((p) => p.category == selectedCategory).toList();
+    return productos.where((p) => p.category.toLowerCase().trim() == selectedCategory.toLowerCase().trim()).toList();
   }
 
 }
